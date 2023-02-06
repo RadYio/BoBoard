@@ -31,7 +31,7 @@ export class CouisineComponent {
         //Pour le nom
         this.recette1 = data.results[0].name
 
-        alert(JSON.stringify(data.results[0].sections[0].components[0].ingredient.name));
+        //alert(JSON.stringify(data.results[0].sections[0].components[0].ingredient.name));
       });
  
     
