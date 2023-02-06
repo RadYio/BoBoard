@@ -39,20 +39,8 @@ export class Meteo2Component implements OnInit{
           // Backgrounds
           const bgBaseUrl = "https://mdbgo.io/ascensus/mdb-advanced/img/";
           const bgFormat = ".gif";
-          switch (main) {
-            case "Snow":
-            case "Clouds":
-            case "Fog":
-            case "Rain":
-            case "Clear":
-            case "Thunderstorm":
-              this.bgUrl = main.toLowerCase();
-            break;
-            default:
-              this.bgUrl = "clear";
-            break;
-            }
-            this.bgUrl = bgBaseUrl + this.bgUrl + bgFormat;
+          this.bgUrl = bgBaseUrl + main.toLowerCase() + bgFormat;
+            
         });
     }
 }
