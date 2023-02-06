@@ -11,6 +11,7 @@ export class Meteo2Component implements OnInit{
 
     constructor(){
       this.url = "";
+      this.bgUrl = "";
     };
 
     ngOnInit(): void {
@@ -34,36 +35,32 @@ export class Meteo2Component implements OnInit{
           let iconCodeToday = data.current.weather[0].icon;
           this.url = iconBaseUrl + iconCodeToday + iconFormat;
 
+          /*
           // Backgrounds
           switch (main) {
             case "Snow":
             this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
             break;
             case "Clouds":
-            document.getElementById("wrapper-bg").style.backgroundImage =
-            "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
+              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
             break;
             case "Fog":
-            document.getElementById("wrapper-bg").style.backgroundImage =
-            "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
+              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
             break;
             case "Rain":
-            document.getElementById("wrapper-bg").style.backgroundImage =
-            "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
+              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
             break;
             case "Clear":
-            document.getElementById("wrapper-bg").style.backgroundImage =
-            "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
+              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
             break;
             case "Thunderstorm":
-            document.getElementById("wrapper-bg").style.backgroundImage =
-            "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
+              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
             break;
             default:
-            document.getElementById("wrapper-bg").style.backgroundImage =
-            "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
+              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
             break;
             }
+            */
           alert(this.url);
         });
     }
