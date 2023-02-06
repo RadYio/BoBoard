@@ -35,33 +35,24 @@ export class Meteo2Component implements OnInit{
           let iconCodeToday = data.current.weather[0].icon;
           this.url = iconBaseUrl + iconCodeToday + iconFormat;
 
-          /*
+          
           // Backgrounds
+          const bgBaseUrl = "https://mdbgo.io/ascensus/mdb-advanced/img/";
+          const bgFormat = ".gif";
           switch (main) {
             case "Snow":
-            this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
-            break;
             case "Clouds":
-              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
-            break;
             case "Fog":
-              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
-            break;
             case "Rain":
-              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
-            break;
             case "Clear":
-              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
-            break;
             case "Thunderstorm":
-              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
+              this.bgUrl = main.toLowerCase();
             break;
             default:
-              this.bgUrl = "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
+              this.bgUrl = "clear";
             break;
             }
-            */
-          alert(this.url);
+            this.bgUrl = bgBaseUrl + this.bgUrl + bgFormat;
         });
     }
 }
