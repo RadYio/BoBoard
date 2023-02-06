@@ -2,6 +2,14 @@ a {
     display: inline-block;
     width: 300px;
     text-decoration: none;
+    color: black;
+  }
+  
+  a.style1 {
+    display: inline-block;
+    width: 60px;
+    text-decoration: underline;
+    color: red;
   }
   nav,
   .scroll-container {
@@ -10,7 +18,7 @@ a {
     text-align: center;
   }
   nav {
-    width: 339px;
+    width: 300px;
     padding: 5px;
     border: 1px solid black;
   }
