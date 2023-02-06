@@ -4,7 +4,7 @@ import { MeteoComponent } from './meteo.component';
 
 describe('MeteoComponent', () => {
   let component: MeteoComponent;
-  let fixture: ComponentFixture<MeteoComponent>;
+  let fixture: ComponentFixture<Meteo2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

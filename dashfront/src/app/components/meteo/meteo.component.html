@@ -1,20 +1,76 @@
-<section class="vh-100" style="background-color: #f5f6f7;">
-    <div class="container py-5 h-100">
+<section class="vh-100">
+    <div class="container py-5">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-10 col-lg-8 col-xl-6">
+            <div class="col-md-9 col-lg-7 col-xl-5">
+                <div id="wrapper-bg" class="card text-white bg-image shadow-4-strong" style="background-image: url({{bgUrl}})">
+            <!-- Main current data -->
+            <div class="card-header p-4 border-0">
+                <div class="text-center mb-3">
+                    <p class="h2 mb-1" id="wrapper-name">Le Mans</p>
+                    <p class="mb-1" id="wrapper-description">{{description}}</p>
+                    <p class="display-1 mb-1" id="wrapper-temp">{{TodayToNext2Days[0].temp}}</p>
+                    <span class="">Pressure: <span id="wrapper-pressure">{{pressure}}</span></span>
+                    <span class="mx-2">|</span>
+                    <span class="">Humidity: <span id="wrapper-humidity">{{humidity}}</span></span>
+                </div>
+            </div>
   
-                <div class="card bg-dark text-white" style="border-radius: 40px;">
-                    <div class="bg-image" style="border-radius: 35px;">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp" class="card-img" alt="weather" />
-                        <div class="mask" style="background-color: rgba(190, 216, 232, .5);"></div>
-                    </div>
-                    <div class="card-img-overlay text-dark p-5">
-                        <h4 class="mb-0">Juneau, Alaska, US</h4>
-                        <p class="display-2 my-3">1.28°C</p>
-                        <p class="mb-2">Feels Like: <strong>-1.08 °C</strong></p>
-                        <h5>Snowy</h5>
+            <!-- Hourly forecast -->
+            <div class="card-body p-4 border-top border-bottom mb-2">
+                <div class="row text-center">
+                    <div class="col-2" *ngFor="let hour of nextHours">
+                        <strong class="d-block mb-2">{{hour.time}}</strong>
+                        <img id="wrapper-icon-hour" src="{{hour.icon}}" class="" alt="" />
+                        <strong class="d-block">{{hour.temp}}</strong>
                     </div>
                 </div>
+            </div>
+  
+            <!-- Daily forecast -->
+            <div class="card-body px-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <strong>Today</strong>
+                    </div>
+  
+                    <div class="col-lg-2 text-center">
+                        <img id="wrapper-icon-today" src={{TodayToNext2Days[0].icon}} class="w-100" alt="" />
+                    </div>
+  
+                    <div class="col-lg-4 text-end">
+                        <span id="wrapper-forecast-temp-today">{{TodayToNext2Days[0].temp}}</span>
+                    </div>
+                </div>
+  
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <strong>Tomorrow</strong>
+                    </div>
+  
+                    <div class="col-lg-2 text-center">
+                        <img id="wrapper-icon-tomorrow" src={{TodayToNext2Days[1].icon}} class="w-100" alt="" />
+                    </div>
+  
+                    <div class="col-lg-4 text-end">
+                        <span id="wrapper-forecast-temp-tomorrow">{{TodayToNext2Days[1].temp}}</span>
+                    </div>
+                </div>
+  
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <strong>Day after tomorrow</strong>
+                    </div>
+  
+                    <div class="col-lg-2 text-center">
+                        <img id="wrapper-icon-dAT" src={{TodayToNext2Days[2].icon}} class="w-100" alt="" />
+                    </div>
+  
+                    <div class="col-lg-4 text-end">
+                        <span id="wrapper-forecast-temp-dAT">{{TodayToNext2Days[2].temp}}</span>
+                    </div>
+                </div>
+                    </div>
+                </div>  
             </div>
         </div>
     </div>
