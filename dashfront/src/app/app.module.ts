@@ -6,6 +6,8 @@ import { MeteoComponent } from './components/meteo/meteo.component';
 import { CouisineComponent } from './components/couisine/couisine.component';
 import { NewsComponent } from './components/news/news.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
