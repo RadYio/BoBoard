@@ -7,10 +7,12 @@ import { Component } from '@angular/core';
 })
 export class CouisineComponent {
   recette1: String;
+  recette1Ing: String;
 
 
   constructor(){
-    this.recette1 = "fesse";
+    this.recette1 = "";
+    this.recette1Ing = "";
   };
 
   ngOnInit(): void {
@@ -26,14 +28,17 @@ export class CouisineComponent {
     };
     let API_KEY = 'b6dc3bdd08msh2a7c44ee7be54f1p10a5bajsne0816708109e';
     fetch(url, options)
-      .then(res => res.json())
-      .then((data) => {
-        //Pour le nom
-        this.recette1 = data.results[0].name
+    .then(res => res.json())
+    .then( res => {
+      //Pour le nom
+      
+      this.recette1 = res.results[0].name 
+      res.results[0].sections[0].components.forEach((element: any) => this.recette1Ing += " -" +element.ingredient.name+"\n");
 
-        //alert(JSON.stringify(data.results[0].sections[0].components[0].ingredient.name));
-      });
- 
+
+      //alert(JSON.stringify(res.results[0].sections[0].components[0].ingredient.name));
+      console.log(this.recette1);
+    });
     
   }
   

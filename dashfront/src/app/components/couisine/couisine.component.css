@@ -1,38 +1,5 @@
-a {
-    display: inline-block;
-    width: 300px;
-    text-decoration: none;
-    color: black;
+
+div.carousel slide {
+    height: 50%;
+
   }
-  
-  a.style1 {
-    display: inline-block;
-    width: 60px;
-    text-decoration: underline;
-    color: red;
-  }
-  nav,
-  .scroll-container {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-  }
-  nav {
-    width: 300px;
-    padding: 5px;
-    border: 1px solid black;
-  }
-  .scroll-container {
-    width: 300px;
-    height: 200px;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-  }
-  .scroll-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    font-size: 5em;
-  }
-  
