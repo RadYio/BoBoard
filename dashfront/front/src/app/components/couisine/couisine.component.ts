@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class CouisineComponent {
   recette1: String;
   recette1Ing: String;
+  listOfIng: any[] = [];
 
 
   constructor(){
@@ -16,31 +17,31 @@ export class CouisineComponent {
   };
 
   ngOnInit(): void {
-
+    /*
     const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes';
-
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': 'b6dc3bdd08msh2a7c44ee7be54f1p10a5bajsne0816708109e',
+        'X-RapidAPI-Key': '78d441e7c1mshacf7f6f61fc37a4p101a35jsn10e8d594b66f',
         'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
       }
     };
-    let API_KEY = 'b6dc3bdd08msh2a7c44ee7be54f1p10a5bajsne0816708109e';
-    fetch(url, options)
+    fetch(url,options)
     .then(res => res.json())
     .then( res => {
       //Pour le nom
       
-      this.recette1 = res.results[0].name 
-      res.results[0].sections[0].components.forEach((element: any) => this.recette1Ing += " -" +element.ingredient.name+"\n");
+      this.recette1 = res.results[0].name;
+      res.results[0].sections[0].components.forEach((element: { ingredient: { name: any; }; }) => this.listOfIng.push(element.ingredient.name));
+      
 
 
       //alert(JSON.stringify(res.results[0].sections[0].components[0].ingredient.name));
-      console.log(this.recette1);
+      console.log(this.listOfIng);
     });
+    */
     
   }
-  
+
 }
 
