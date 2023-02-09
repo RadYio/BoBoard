@@ -1,39 +1,29 @@
 const express = require('express');
 const cors = require('cors');
 
-const Sequelize = require('sequelize');
-const BDD = new Sequelize('dataJSON', 'user', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    logging: false,
-    storage: 'dataJSON.sqlite',
-    });
+const { initializeApp } = require("firebase/app");
 
-const Meteo = BDD.define('meteo', {
-    id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-    },
-    date: {
-        type: Sequelize.STRING,
-        unique: true,
-    },
-    temp: {
-        type: Sequelize.FLOAT,
-    },
-    temp_min: {
-        type: Sequelize.FLOAT,
-    },
-    temp_max: {
-        type: Sequelize.FLOAT,
-    },
-    humidity: {
-        type: Sequelize.FLOAT,
-    },
-});
+// Your web app's Firebase configuration
+const firebaseConfig = {
 
-Meteo.sync();
+    apiKey: "AIzaSyCFkJk1devIgPzv9n3fEPvRJifhJvRtldE",
+  
+    authDomain: "boboardbdd.firebaseapp.com",
+  
+    projectId: "boboardbdd",
+  
+    storageBucket: "boboardbdd.appspot.com",
+  
+    messagingSenderId: "1069782262793",
+  
+    appId: "1:1069782262793:web:05972b2697185717e844d8"
+  
+};
+
+// Initialize Firebase
+const appp = initializeApp(firebaseConfig);
+
+  
 
 const app = express();
 const port = 3080;
@@ -49,11 +39,7 @@ app.get('/meteo', (req, res) => {
     const lang = "lang=fr"; //Choice language
     const requestFull = queryUrl + lat + lon + apiOptions + apiKey + lang;
 
-
-    
-
-    
-
+    res.json('null');
 });
 
 app.listen(port, () => {
