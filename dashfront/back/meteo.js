@@ -4,7 +4,7 @@ const cors = require('cors');
 const { MongoClient } = require('mongodb');
 
 const app = express();
-const port = 666;
+const port = 3080;
 
 app.use(cors());
 
@@ -17,8 +17,24 @@ app.get('/meteo', (req, res) => {
     const lang = "lang=fr"; //Choice language
     const requestFull = queryUrl + lat + lon + apiOptions + apiKey + lang;
 
-    const uri = "mongodb+srv://Faiss_master:3gI4AQIowQ6vjtpW@faiss.ethxjgh.mongodb.net/test";
 
+    const uri = "mongodb+srv://Faiss_master:3gI4AQIowQ6vjtpW@faiss.ethxjgh.mongodb.net/test";
+    const client = new MongoClient(uri);
+
+    async function run() {
+        try {
+          // Connect the client to the server (optional starting in v4.7)
+          console.log("Connecting to server...");
+          await client.connect();
+          // Establish and verify connection
+          await client.db("admin").command({ ping: 1 });
+          console.log("Connected successfully to server");
+        } finally {
+          // Ensures that the client will close when you finish/error
+          await client.close();
+        }
+      }
+      run().catch(console.dir);
 
 });
 
