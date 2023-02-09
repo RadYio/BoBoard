@@ -1,0 +1,22 @@
+<div>
+    <div>
+        <h2>Ma liste de gros bg</h2>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>taille</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let bg of Person">
+                    <td>{{bg.name}}</td>
+                    <td>{{bg.size}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
