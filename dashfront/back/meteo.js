@@ -1,7 +1,39 @@
 const express = require('express');
 const cors = require('cors');
 
-const { MongoClient } = require('mongodb');
+const Sequelize = require('sequelize');
+const BDD = new Sequelize('dataJSON', 'user', 'password', {
+    host: 'localhost',
+    dialect: 'sqlite',
+    logging: false,
+    storage: 'dataJSON.sqlite',
+    });
+
+const Meteo = BDD.define('meteo', {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    date: {
+        type: Sequelize.STRING,
+        unique: true,
+    },
+    temp: {
+        type: Sequelize.FLOAT,
+    },
+    temp_min: {
+        type: Sequelize.FLOAT,
+    },
+    temp_max: {
+        type: Sequelize.FLOAT,
+    },
+    humidity: {
+        type: Sequelize.FLOAT,
+    },
+});
+
+Meteo.sync();
 
 const app = express();
 const port = 3080;
@@ -18,23 +50,9 @@ app.get('/meteo', (req, res) => {
     const requestFull = queryUrl + lat + lon + apiOptions + apiKey + lang;
 
 
-    const uri = "mongodb+srv://Faiss_master:3gI4AQIowQ6vjtpW@faiss.ethxjgh.mongodb.net/test";
-    const client = new MongoClient(uri);
+    
 
-    async function run() {
-        try {
-          // Connect the client to the server (optional starting in v4.7)
-          console.log("Connecting to server...");
-          await client.connect();
-          // Establish and verify connection
-          await client.db("admin").command({ ping: 1 });
-          console.log("Connected successfully to server");
-        } finally {
-          // Ensures that the client will close when you finish/error
-          await client.close();
-        }
-      }
-      run().catch(console.dir);
+    
 
 });
 
