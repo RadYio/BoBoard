@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import * as fs from 'fs';
-
 
 @Component({
   selector: 'app-couisine',
@@ -19,20 +17,6 @@ export class CouisineComponent {
   };
 
   ngOnInit(): void {
-
-    fs.readFile('test.json', 'utf-8', (err: any, data :any) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    
-      try {
-        const jsonData = JSON.parse(data);
-        console.log(jsonData);
-      } catch (e) {
-        console.error('Error parsing JSON data: ', e);
-      }
-    });
     /*
     const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes';
     const options = {
@@ -52,8 +36,8 @@ export class CouisineComponent {
       
 
 
-      alert(JSON.stringify(res.results[0]));
-      console.log();
+      //alert(JSON.stringify(res.results[0].sections[0].components[0].ingredient.name));
+      console.log(this.listOfIng);
     });
     */
     
