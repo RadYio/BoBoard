@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 
-const { initializeApp } = require("firebase/app");
+const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
+const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,8 +21,23 @@ const firebaseConfig = {
   
 };
 
-// Initialize Firebase
-const appp = initializeApp(firebaseConfig);
+const serviceAccount = require('./clefGoogle.json');
+
+initializeApp({
+  credential: cert(serviceAccount)
+});
+
+const db = getFirestore();
+
+const docRef = db.collection('users').doc('alovelace');
+
+ docRef.set({
+  first: 'Ada',
+  last: 'Lovelace',
+  born: 1815
+});
+
+
 
   
 
@@ -38,7 +54,7 @@ app.get('/meteo', (req, res) => {
     const apiKey = "appid=dbb76c5d98d5dbafcb94441c6a10236e&"; //thanks tonton
     const lang = "lang=fr"; //Choice language
     const requestFull = queryUrl + lat + lon + apiOptions + apiKey + lang;
-
+    console.log("Appel");
     res.json('null');
 });
 
