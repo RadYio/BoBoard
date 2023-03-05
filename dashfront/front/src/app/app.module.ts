@@ -8,7 +8,7 @@ import { NewsComponent } from './components/news/news.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { PersonComponent } from './components/person/person.component';
-import { MapsComponent } from './maps/maps.component';
+import { MapsComponent } from './components/maps/maps.component';
 
 @NgModule({
   declarations: [

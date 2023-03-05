@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { News } from './news';
 
 @Component({
@@ -7,15 +7,16 @@ import { News } from './news';
   styleUrls: ['./news.component.css']
 })
 
-export class NewsComponent {
+export class NewsComponent implements OnInit  {
   news: News[] = [];
 
-  constructor(){
+  ngOnInit(): void {
+  
     const options = {
       method: 'GET'
     };
 
-    let apiKey = "null"; //8d510f151fea9c5e7b31f8fba58e4912
+    let apiKey = "null";
 
     fetch('http://api.mediastack.com/v1/news?access_key='+apiKey+'&countries=fr', options)
       .then(response => response.json())
