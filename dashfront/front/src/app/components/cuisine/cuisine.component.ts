@@ -11,6 +11,7 @@ import { ApiCuisineService } from '../../services/api-cuisine.service'
 export class CuisineComponent implements OnInit {
   recette1: String;
   recette1Ing: String;
+  recetteImgUrl: String;
   listOfIng: any[] = [];
 
 
@@ -18,12 +19,15 @@ export class CuisineComponent implements OnInit {
   constructor(private apiService: ApiCuisineService){
     this.recette1 = "";
     this.recette1Ing = "";
+    this.recetteImgUrl = "";
   };
-
+  
   ngOnInit(): void {
-    this.apiService.GetCuisine().subscribe((data) => {
-      console.log("on récup"+JSON.stringify(data));
+    this.apiService.GetCuisine().subscribe(data => {
+      //let resultat = JSON.parse(data.toString());
+      alert("Url: " + JSON.stringify(data));
   });
+  
     /*
     const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes';
     const options = {
@@ -41,10 +45,10 @@ export class CuisineComponent implements OnInit {
       this.recette1 = res.results[0].name;
       res.results[0].sections[0].components.forEach((element: { ingredient: { name: any; }; }) => this.listOfIng.push(element.ingredient.name));
       
-      temp =  result.results[0].sections[0].components.element.ingredient.name;
+      //temp =  result.results[0].sections[0].components.element.ingredient.name;
 
-      alert(JSON.stringify(res.results[0]));
-      console.log();
+      alert(JSON.stringify(res.results[0].name));
+      console.log(this.recette1);
     });
     */
     
