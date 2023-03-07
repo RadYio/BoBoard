@@ -1,34 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
 
+const loader = new Loader({
+  apiKey: "AIzaSyBUnyVyvNnyU_7GoqJvZfMhw4rsBjZ0Fhc",
+  version: "weekly",
+  libraries: ["places"]
+});
+
+let mapOptions = {
+  center: {
+    lat: 0,
+    lng: 0
+  },
+  zoom: 4
+};
+
+function initMap(lat, lng){
+  mapOptions.center.lat=lat;
+  mapOptions.center.lng=lng;
+
+  // Promise
+loader.load()
+.then((google) => {
+  new google.maps.Map(document.getElementById("map"), mapOptions);
+})
+.catch(e => {
+  // do something
+});
+}
+
+
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
   styleUrls: ['./maps.component.css']
 })
 
-export class MapsComponent implements OnInit { 
-  private map: google.maps.Map
- 
+export class MapsComponent implements OnInit {
+
   ngOnInit(): void {
-    let loader = new Loader({
-      apiKey: 'AIzaSyBUnyVyvNnyU_7GoqJvZfMhw4rsBjZ0Fhc',
-    });
- 
-    loader.load().then(() => {
-      console.log('loaded gmaps')
- 
-      const location = { lat: 51.233334, lng: 6.783333 }
- 
-      this.map = new google.maps.Map(document.getElementById("map"), {
-        center: location,
-        zoom: 6,
-      })
- 
-      const marker = new google.maps.Marker({
-        position: location,
-        map: this.map,
-      });
-    })
+    initMap(40, 40);
   }
 }
