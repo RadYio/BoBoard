@@ -1,27 +1,14 @@
 const express = require('express');
 const cors = require('cors');
+const axios = require('axios');
 
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
 
-    apiKey: "AIzaSyCFkJk1devIgPzv9n3fEPvRJifhJvRtldE",
-  
-    authDomain: "boboardbdd.firebaseapp.com",
-  
-    projectId: "boboardbdd",
-  
-    storageBucket: "boboardbdd.appspot.com",
-  
-    messagingSenderId: "1069782262793",
-  
-    appId: "1:1069782262793:web:05972b2697185717e844d8"
-  
-};
 
 const serviceAccount = require('./clefGoogle.json');
+const { response } = require('express');
 
 initializeApp({
   credential: cert(serviceAccount)
@@ -29,16 +16,25 @@ initializeApp({
 
 const db = getFirestore();
 
-const docRef = db.collection('users').doc('alovelace');
+async function addDoc(val) {
+  const docRef = await db.collection('valeurRandom').add({
+    val: val
+  });
+  console.log("Document crée avec l'id: ", docRef.id);
+}
 
- docRef.set({
-  first: 'Ada',
-  last: 'Lovelace',
-  born: 1815
-});
+async function afficherDoc() {
+  const snapshot = await db.collection('users').get();
+  snapshot.forEach((doc) => {
+    console.log(doc.id, '=>', doc.data());
+  });
+}
 
+afficherDoc();
 
+//addDoc("test");
 
+console.log("on est passé");
   
 
 const app = express();
@@ -55,7 +51,18 @@ app.get('/meteo', (req, res) => {
     const lang = "lang=fr"; //Choice language
     const requestFull = queryUrl + lat + lon + apiOptions + apiKey + lang;
     console.log("Appel");
-    res.json('null');
+
+    
+  axios.get(requestFull)
+    .then(response => {
+      console.log(response.data);
+      res.json(response.data);
+    })
+    .catch(error => {
+      console.error('Erreur lors de la récupération des données météo', error);
+    });
+
+    console.log("Yooo");
 });
 
 app.listen(port, () => {
