@@ -58,7 +58,20 @@ export class MeteoComponent implements OnInit{
         .then((data) => {
 
           //Background
-          const currentWeather = data.current.weather[0].main;
+          let currentWeather = data.current.weather[0].main;
+          console.log("currentWeather: " + currentWeather + "");
+          
+          //We need to change the name of the weather to match the name of the background
+          switch(data.current.weather[0].main.toLowerCase()){
+            case "drizzle":
+              currentWeather = "rain";
+              break;
+          }
+          
+
+
+
+          
           const bgBaseUrl = "https://mdbgo.io/ascensus/mdb-advanced/img/";
           const bgFormat = ".gif";
           this.bgUrl = bgBaseUrl + currentWeather.toLowerCase() + bgFormat;
