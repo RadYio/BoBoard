@@ -20,16 +20,23 @@ export class NewsComponent implements OnInit  {
     };
 
     this.newsService.getNews().subscribe((data: {}) => {
-      for(let i = 0; i < 10; i++){
-        this.news[i]=new News();
-          this.news[i].titre = data[i].title;
-          this.news[i].author = data[i].author;
-          this.news[i].description = data[i].description;
-          this.news[i].url = data[i].url;
-          this.news[i].imageUrl = data[i].image;
-          this.news[i].date = data[i].published_at;
-        }
+
       });
+
+      fetch("http://localhost:3080/news")
+        .then((response) => response.json())
+
+        .then((data) => {
+          for(let i = 0; i < 10; i++){
+            this.news[i]=new News();
+              this.news[i].titre = data[i].title;
+              this.news[i].author = data[i].author;
+              this.news[i].description = data[i].description;
+              this.news[i].url = data[i].url;
+              this.news[i].imageUrl = data[i].image;
+              this.news[i].date = data[i].published_at;
+            }
+        });
 
    /* fetch('http://api.mediastack.com/v1/news?access_key='+apiKey+'&countries=fr', options)
       .then(response => response.json())
