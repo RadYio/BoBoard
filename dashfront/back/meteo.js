@@ -12,6 +12,8 @@ const port = 3080;
 
 app.use(cors());
 
+bdd.getlastTimestamp("meteo");
+
 app.get('/meteo', (req, res) => {
     const queryUrl = "https://api.openweathermap.org/data/2.5/onecall?";
     const lat = "lat=48.007751&";
