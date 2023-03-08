@@ -52,13 +52,26 @@ export class MeteoComponent implements OnInit{
       const lang = "lang=fr"; //Choice language
       const requestFull = queryUrl + lat + lon + apiOptions + apiKey + lang;
 
-      fetch(requestFull)
+      fetch("http://localhost:3080/meteo")
         .then((response) => response.json())
 
         .then((data) => {
 
           //Background
-          const currentWeather = data.current.weather[0].main;
+          let currentWeather = data.current.weather[0].main;
+          console.log("currentWeather: " + currentWeather + "");
+
+          //We need to change the name of the weather to match the name of the background
+          switch(data.current.weather[0].main.toLowerCase()){
+            case "drizzle":
+              currentWeather = "rain";
+              break;
+          }
+          
+
+
+
+          
           const bgBaseUrl = "https://mdbgo.io/ascensus/mdb-advanced/img/";
           const bgFormat = ".gif";
           this.bgUrl = bgBaseUrl + currentWeather.toLowerCase() + bgFormat;
