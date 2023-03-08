@@ -35,7 +35,8 @@ export class CuisineComponent implements OnInit {
       //On récupère le dernier topics 
       this.recetteTag = resultat.results[id].topics.pop().name
       if(resultat.results[id].total_time_minutes != null){
-        this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " minutes";
+        //this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " minutes";
+        this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " fesse";
       }else{
         this.recetteTime = " ~ 1H"
       }
