@@ -8,9 +8,9 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-6 my-auto">
-                <h4 class="text-white mb-0 fadeIn1 fadeInBottom">test</h4>
+                <h4 class="text-white mb-0 fadeIn1 fadeInBottom">{{recetteTag}}</h4>
                 <h1 class="text-white fadeIn2 fadeInBottom">{{recette1}}</h1>
-                <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">Wealth </p>
+                <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">{{recetteTime}} </p>
               </div>
             </div>
           </div>
@@ -23,9 +23,11 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-6 my-auto">
-                <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Our Team</h4>
-                <h1 class="text-white fadeIn2 fadeInBottom">Work with the best</h1>
-                <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">Free people make free choices.</p>
+                <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Ingredients :</h4>
+                <ul>
+                  <li class="text-white mb-0 fadeIn1 fadeInBottom" *ngFor="let n of listOfIng">{{n}}</li>
+                </ul>
+                <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">Bon appétit !</p>
               </div>
             </div>
           </div>
@@ -36,14 +38,19 @@
           <span class="mask bg-gradient-dark"></span>
           <div class="container">
             <div class="row">
-              <div class="col-lg-6 my-auto" *ngfor = "let n of listOfIng">
-                <h4 class="text-white mb-0 fadeIn1 fadeInBottom">{{n}} </h4>
+              <div class="col-lg-6 my-auto">
+                <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Étapes :</h4>
+                <div class="text-white mb-0 fadeIn1 fadeInBottom" style="overflow-y: scroll; height: 500px;">
+                  <ul>
+                    <li class="text-white mb-0 fadeIn1 fadeInBottom" *ngFor="let n of listOfIng">{{n}}aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
     </div>
-    <div class="min-vh-75 position-absolute w-100 top-0">
+    <div class="min-vh-100 position-absolute w-100 top-0">
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon position-absolute bottom-50" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
