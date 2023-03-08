@@ -12,6 +12,8 @@ export class CuisineComponent implements OnInit {
   recette1: String;
   recette1Ing: String;
   recetteImgUrl: String;
+  recetteTag: String;
+  recetteTime: String;
   listOfIng: any[] = [];
 
 
@@ -20,12 +22,26 @@ export class CuisineComponent implements OnInit {
     this.recette1 = "";
     this.recette1Ing = "";
     this.recetteImgUrl = "";
+    this.recetteTag = "";
+    this.recetteTime = "";
   };
   
   ngOnInit(): void {
     this.apiService.GetCuisine().subscribe(data => {
-      //let resultat = JSON.parse(data.toString());
-      alert("Url: " + JSON.stringify(data));
+      let id = 18;
+      let resultat = JSON.parse(JSON.stringify(data));
+      this.recette1 = resultat.results[id].name
+      this.recetteImgUrl = resultat.results[id].thumbnail_url;
+      //On récupère le dernier topics 
+      this.recetteTag = resultat.results[id].topics.pop().name
+      if(resultat.results[id].total_time_minutes != null){
+        this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " minutes";
+      }else{
+        this.recetteTime = " ~ 1H"
+      }
+      
+      resultat.results[id].sections[0].components.forEach((element: { raw_text: any; }) => this.listOfIng.push(element.raw_text));
+
   });
   
     /*
