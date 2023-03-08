@@ -20,7 +20,7 @@ app.get('/meteo', (req, res) => {
     const lon = "lon=0.198520&";
     const apiOptions = "units=metric&exclude=minutely,alerts&";
     const apiKey = "appid=dbb76c5d98d5dbafcb94441c6a10236e&"; //thanks tonton
-    const lang = "lang=fr"; //Choice language
+    const lang = "lang=en"; //Choice language
     const requestFull = queryUrl + lat + lon + apiOptions + apiKey + lang;
     console.log("Appel n°" + nbCall++);
 

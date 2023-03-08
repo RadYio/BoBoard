@@ -6,7 +6,7 @@ const axios = require('axios');
 
 const app = express();
 const port = 3080;
-const fs = require('fs')
+
 
 
 
@@ -16,7 +16,7 @@ app.use(cors());
 
 console.log(`Get`);
 app.get('/Cuisine', async (req, res) => {
-    const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes';
+    const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_1_hour';
     const options = {
         timeout: 30000,
         method: 'GET',
