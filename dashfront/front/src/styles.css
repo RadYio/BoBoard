@@ -21244,6 +21244,16 @@ fieldset:disabled .btn {
   position: relative;
 }
 
+.justify-li {
+  display: inline-block;
+  max-width: 100%;
+  text-align: justify;
+  text-align-last: start;
+}
+
+
+
+
 .dropdown.dropdown-subitem:after {
   left: 100%;
   bottom: 0;

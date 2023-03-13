@@ -16,7 +16,7 @@ app.use(cors());
 
 console.log(`Get`);
 app.get('/Cuisine', async (req, res) => {
-    const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_1_hour';
+    const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_1_hour&aspect_ratio=9:16';
     const options = {
         timeout: 30000,
         method: 'GET',
@@ -25,21 +25,11 @@ app.get('/Cuisine', async (req, res) => {
         'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
         }
     }
-    axios.get(url,options)
-        .then( result => {
-            res.json(result.data);    
+    axios.get(url, options)
+        .then(result => {
+            res.json(result.data);
         });
-    /*
-    const temp = '';
-    console.log(`Fetch`);
-    */
-    //code ici 
-    /*
-    let fichier = fs.readFileSync('recette.json')
-    let resultat = JSON.parse(fichier)
-    console.log("resultat :"+resultat.thumbnail_url)
-    res.json(resultat.thumbnail_url);    
-    */
+
 });
 
 app.listen(port, () => {
@@ -47,35 +37,3 @@ app.listen(port, () => {
     }
 );
 
-
-
-/*
-    fetch(url,options)
-        .then(result => result.json())
-        .then( result => {
-            temp =  result.results[0].name;
-            console.log("ici"+JSON.stringify(temp));
-        }).catch(err => console.error('error:' + err));
-    
-    // async await syntax
-    try {
-		let response = await fetch(url, options);
-		response = await response.json();
-		res.status(200).json(response);
-	} catch (err) {
-		console.log(err);
-	}
-    
-    
-    let personne = {
-        "prenom" : "Marie",
-        "age" : 45,
-        "passion" : "loisirs créatifs, histoire",
-        "taille" : 172
-    }
-    
-    
-    let personne = JSON.stringify(personne)
-    */
-
-    //fs.writeFileSync('recette.json', temp)
