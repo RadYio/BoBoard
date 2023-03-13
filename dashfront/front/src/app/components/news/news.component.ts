@@ -25,7 +25,6 @@ export class NewsComponent implements OnInit  {
 
       fetch("http://localhost:3080/news")
         .then((response) => response.json())
-
         .then((data) => {
           for(let i = 0; i < 10; i++){
             this.news[i]=new News();
@@ -37,6 +36,7 @@ export class NewsComponent implements OnInit  {
               this.news[i].date = data[i].published_at;
             }
         });
+
 
    /* fetch('http://api.mediastack.com/v1/news?access_key='+apiKey+'&countries=fr', options)
       .then(response => response.json())
