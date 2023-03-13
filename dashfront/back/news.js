@@ -7,34 +7,35 @@ const { displayAllDocs, getlastDoc } = require('./bdd.js');
 const app = express();
 const port = 3080;
 
+const nameOfCollection = "news";
+
 app.use(cors());
 
 let apiKey = ""; //8d510f151fea9c5e7b31f8fba58e4912
-bdd.getlastTimestamp("news");
+bdd.getlastTimestamp(nameOfCollection);
 
 //displayAllDocs("news");
 
-    app.get('/news', (req, res) => {
-      // Obtenir les news de la derniere table du serveur
-      getlastDoc("news").then((doc) => {
-        res.json(doc);
+   app.get('/' + nameOfCollection, (req, res) => {
+    bdd.doIhaveToRequest(nameOfCollection).then(result => {
+      if(result){
+        console.log("We request the API (" + nameOfCollection + ")");
+        /*axios.get("http://api.mediastack.com/v1/news?access_key="+apiKey+"&countries=fr")
+          .then(response => {
+            res.json(response.data);
+            bdd.addDoc(nameOfCollection, response.data);
+          })
+          .catch(error => {
+            console.error('Erreur lors de la récupération des données pour les news !', error);
+          });*/
+      } else {
+        console.log("We don't request the API (" + nameOfCollection + ")");
+        bdd.getlastDoc(nameOfCollection).then(response => {
+          res.json(response);
+        });
+      }
     });
   });
-
-/*app.get('/news', (req, res) => {
-  axios.get("http://api.mediastack.com/v1/news?access_key="+apiKey+"&countries=fr")
-    .then(response => {
-      bdd.addDoc("news", response.data);
-      res.json(response.data);
-    })
-
-    .catch(error => {
-      console.error('Erreur lors de la récupération des données pour les news', error);
-      res.json("null");
-    });
-
-    console.log("Yooo");
-});*/
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

@@ -24,16 +24,16 @@ export class NewsComponent implements OnInit  {
       });
 
       fetch("http://localhost:3080/news")
+      .then((response) => response.json())
         .then((response) => {
-          console.log("ouin ouin\n" + response);
           for(let i = 0; i < 10; i++){
               this.news[i]=new News();
-              this.news[i].titre = response[i].title;
-              this.news[i].author = response[i].author;
-              this.news[i].description = response[i].description;
-              this.news[i].url = response[i].url;
-              this.news[i].imageUrl = response[i].image;
-              this.news[i].date = response[i].published_at;
+              this.news[i].titre = response.data[i].title;
+              this.news[i].author = response.data[i].author;
+              this.news[i].description = response.data[i].description;
+              this.news[i].url = response.data[i].url;
+              this.news[i].imageUrl = response.data[i].image;
+              this.news[i].date = response.data[i].published_at;
             }
         });
 
