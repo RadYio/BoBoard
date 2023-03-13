@@ -35,8 +35,12 @@ module.exports = {
   displayAllDocs: async function (collection) {
     const allDocsInCollection = await db.collection(collection).get();
     allDocsInCollection.forEach((doc) => {
-      console.log(doc.id, '=>', doc.data());
+       console.log(doc.id, '=>', doc.data());
     });
+  },
+  getDoc: async function (collection) {
+    const allDocsInCollection = await db.collection(collection).get();
+    return allDocsInCollection;
   },
   //getLastTimestamp: display the last timestamp in a collection in firestore
   //collection: name of the collection in firestore
