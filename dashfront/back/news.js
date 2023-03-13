@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const bdd = require('./bdd.js');
-const { displayAllDocs, getDoc } = require('./bdd.js');
+const { displayAllDocs, getlastDoc } = require('./bdd.js');
 
 const app = express();
 const port = 3080;
@@ -15,10 +15,9 @@ bdd.getlastTimestamp("news");
 //displayAllDocs("news");
 
     app.get('/news', (req, res) => {
-      getDoc("news").then((allDocsInCollection) => {
-        allDocsInCollection.forEach((doc) => {
-          res.json(doc.data());
-      });
+      // Obtenir les news de la derniere table du serveur
+      getlastDoc("news").then((doc) => {
+        res.json(doc);
     });
   });
 
