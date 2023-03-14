@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class MeteoComponent implements OnInit{
-  
+  //test
   iconUrl: string;
   bgUrl: string;
   description: string;
@@ -29,7 +29,7 @@ export class MeteoComponent implements OnInit{
 
     constructor(){
       this.iconUrl = "url not defined";
-      this.bgUrl = "url not defined";
+      this.bgUrl = "https://i.imgur.com/wMy1MWV.gif";
       this.description = "description not defined"
       this.pressure = "pressure not defined";
       this.humidity = "humidity not defined";
@@ -44,15 +44,8 @@ export class MeteoComponent implements OnInit{
     };
 
     ngOnInit(): void {
-      const queryUrl = "https://api.openweathermap.org/data/2.5/onecall?";
-      const lat = "lat=48.007751&";
-      const lon = "lon=0.198520&";
-      const apiOptions = "units=metric&exclude=minutely,alerts&";
-      const apiKey = "appid=dbb76c5d98d5dbafcb94441c6a10236e&"; //thanks tonton
-      const lang = "lang=fr"; //Choice language
-      const requestFull = queryUrl + lat + lon + apiOptions + apiKey + lang;
-
-      fetch("http://localhost:3080/meteo")
+      //On call le back
+      fetch("http://localhost:3080/weather")
         .then((response) => response.json())
 
         .then((data) => {
@@ -67,9 +60,6 @@ export class MeteoComponent implements OnInit{
               currentWeather = "rain";
               break;
           }
-          
-
-
 
           
           const bgBaseUrl = "https://mdbgo.io/ascensus/mdb-advanced/img/";
