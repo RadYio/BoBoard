@@ -49,7 +49,7 @@ export class CuisineComponent implements OnInit {
       //Ajout des étapes de la recette
       resultat.results[id].instructions.forEach((element: { display_text: any; }) => this.listOfEtapes.push(element.display_text));
       
-
+      
     });
   }
 
