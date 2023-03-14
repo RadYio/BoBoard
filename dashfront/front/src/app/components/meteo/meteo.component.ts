@@ -52,7 +52,6 @@ export class MeteoComponent implements OnInit{
 
           //Background
           let currentWeather = data.current.weather[0].main;
-          console.log("currentWeather: " + currentWeather + "");
 
           //We need to change the name of the weather to match the name of the background
           switch(data.current.weather[0].main.toLowerCase()){
