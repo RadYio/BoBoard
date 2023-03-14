@@ -2,13 +2,13 @@
 <div id="carouselExampleControls" class="carousel slide container py-6" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="page-header min-vh-75 m-3 border-radius-xl" style="background-image: url({{recetteImgUrl}});">
+        <div class="page-header min-vh-75 m-3 border-radius-xl" style="background-image: url({{recetteImgUrl[0]}});">
           <span class="mask bg-gradient-dark"></span>
           <div class="container">
             <div class="row">
               <div class="col-lg-12 my-auto">
                 <h4 class="text-white mb-0 fadeIn1 fadeInBottom">{{recetteTag}}</h4>
-                <h1 class="text-white fadeIn2 fadeInBottom">{{recette1}}</h1>
+                <h1 class="text-white fadeIn2 fadeInBottom">{{recette}}</h1>
                 <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">{{recetteTime}} </p>
               </div>
             </div>
@@ -17,13 +17,13 @@
 
       </div>
        <div class="carousel-item">
-        <div class="page-header min-vh-75 m-3 border-radius-xl" style="background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80');">
+        <div class="page-header min-vh-75 m-3 border-radius-xl" style="background-image: url({{recetteImgUrl[1]}});">
           <span class="mask bg-gradient-dark"></span>
           <div class="container">
             <div class="row">
               <div class="col-lg-12 my-auto">
                 <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Ingredients :</h4>
-                <div class="text-white mb-0 fadeIn1 fadeInBottom" style="overflow-y: scroll; height: 500px;">
+                <div class="text-white mb-0 fadeIn1 fadeInBottom" style="overflow-y: scroll; height: 500px;width :90%">
                   <ul>
                     <li class="text-white mb-0 fadeIn1 fadeInBottom" *ngFor="let n of listOfIng">{{n}}</li>
                   </ul>
@@ -36,18 +36,20 @@
       </div>
       <div class="carousel-item">
         <div class="page-header min-vh-75 m-3 border-radius-xl" style="background-image: url('https://images.unsplash.com/photo-1552793494-111afe03d0ca?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80');"> 
-        
           <span class="mask bg-gradient-dark"></span>
           <div class="container">
             <div class="row">
               <div class="col-lg-12 my-auto">
                 <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Étapes :</h4>
-                <div class="text-white mb-0 fadeIn1 fadeInBottom" style="overflow-y: scroll; height: 400px;">
+                <div class="text-white mb-0 fadeIn1 fadeInBottom" style="overflow-y: scroll; height: 500px; width :90%">
                   <ul>
                     <li class="text-white mb-0 fadeIn1 fadeInBottom justify-li" *ngFor="let e of listOfEtapes">-> {{e}}</li>
                   </ul>
                 </div>
-              </div>
+                    <a href="{{recetteUrlVideo}}">
+                      <button type="button" class="btn btn-primary btn-lg w-100 fadeIn3">Recette en vidéo</button>
+                    </a>
+                </div>
             </div>
           </div>
         </div>

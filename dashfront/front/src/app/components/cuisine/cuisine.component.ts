@@ -9,30 +9,33 @@ import { ApiCuisineService } from '../../services/api-cuisine.service'
 })
 
 export class CuisineComponent implements OnInit {
-  recette1: String;
-  recette1Ing: String;
-  recetteImgUrl: String;
+  recette: String;
+  recetteIng: String;
+  recetteImgUrl: String[] = [];
   recetteTag: String;
   recetteTime: String;
   listOfIng: any[] = [];
   listOfEtapes: any[] = [];
+  recetteUrlVideo: String;
 
 
 
   constructor(private apiService: ApiCuisineService){
-    this.recette1 = "";
-    this.recette1Ing = "";
-    this.recetteImgUrl = "";
+    this.recette = "";
+    this.recetteIng = "";
+    this.recetteUrlVideo = "";
     this.recetteTag = "";
     this.recetteTime = "";
   };
   
   ngOnInit(): void {
     this.apiService.GetCuisine().subscribe(data => {
-      let id = 1;
+      let id = 0;
       let resultat = JSON.parse(JSON.stringify(data));
-      this.recette1 = resultat.results[id].name
-      this.recetteImgUrl = resultat.results[id].thumbnail_url;
+      this.recette = resultat.results[id].name
+      this.recetteImgUrl[0] = resultat.results[id].thumbnail_url;
+      this.recetteImgUrl[1] = resultat.results[id].renditions[0].poster_url;
+      this.recetteUrlVideo = resultat.original_video_url;
       //On récupère le dernier topics 
       this.recetteTag = resultat.results[id].topics.pop().name
       if(resultat.results[id].total_time_minutes != null){
