@@ -21,7 +21,7 @@ app.get('/Cuisine', async (req, res) => {
         timeout: 30000,
         method: 'GET',
         headers: {
-        'X-RapidAPI-Key': '78d441e7c1mshacf7f6f61fc37a4p101a35jsn10e8d594b66f',
+        'X-RapidAPI-Key': 'b6dc3bdd08msh2a7c44ee7be54f1p10a5bajsne0816708109e',
         'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
         }
     }

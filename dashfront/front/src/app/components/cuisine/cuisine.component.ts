@@ -30,7 +30,7 @@ export class CuisineComponent implements OnInit {
   
   ngOnInit(): void {
     this.apiService.GetCuisine().subscribe(data => {
-      let id = 1;
+      let id = 2;
       let resultat = JSON.parse(JSON.stringify(data));
       this.recette = resultat.results[id].name
       this.recetteImgUrl[0] = resultat.results[id].thumbnail_url;
@@ -48,7 +48,7 @@ export class CuisineComponent implements OnInit {
       resultat.results[id].sections[0].components.forEach((element: { raw_text: any; }) => this.listOfIng.push(element.raw_text));
       //Ajout des étapes de la recette
       resultat.results[id].instructions.forEach((element: { display_text: any; }) => this.listOfEtapes.push(element.display_text));
-      
+      alert(JSON.stringify(this.listOfEtapes));
       
     });
   }
