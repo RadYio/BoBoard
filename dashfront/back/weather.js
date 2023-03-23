@@ -13,7 +13,6 @@ module.exports = function(nameOfCollection) {
         const lat = "lat=48.007751&";
         const lon = "lon=0.198520&";
         const apiOptions = "units=metric&exclude=minutely,alerts&";
-        //const apiKey = "appid=42d2a481603b88ccb5d7f1f0297b465c&";
         const apiKey = "appid=dbb76c5d98d5dbafcb94441c6a10236e&"; //thanks tonton
         const lang = "lang=en"; //Choice language
         const requestFull = queryUrl + lat + lon + apiOptions + apiKey + lang;
