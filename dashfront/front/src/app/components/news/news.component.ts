@@ -19,7 +19,7 @@ export class NewsComponent implements OnInit  {
       method: 'GET'
     };
 
-      fetch("http://localhost:3080/news")
+      fetch("https://fesse.onrender.com/news")
       .then((response) => response.json())
         .then((response) => {
           for(let i = 0; i < 10; i++){
