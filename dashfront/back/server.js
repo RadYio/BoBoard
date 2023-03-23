@@ -32,3 +32,7 @@ const nameOfRecipeCollection = 'recipe';
 
 app.use('/' + nameOfRecipeCollection, recipe(nameOfRecipeCollection));
 
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
