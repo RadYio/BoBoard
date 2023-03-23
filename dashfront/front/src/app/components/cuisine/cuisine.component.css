@@ -1,27 +1,26 @@
 .pagination {
+    --bs-pagination-font-family: "Quicksand Medium"    ;
     --bs-pagination-padding-x: 0.75rem;
     --bs-pagination-padding-y: 0.375rem;
     --bs-pagination-font-size: 1rem;
-    --bs-pagination-color: #5e72e4;
-    --bs-pagination-bg: #fff;
     --bs-pagination-border-width: 1px;
-    --bs-pagination-border-color: #dee2e6;
     --bs-pagination-border-radius: 0.5rem;
-    --bs-pagination-hover-color: #233dd2;
-    --bs-pagination-hover-bg: #e9ecef;
-    --bs-pagination-hover-border-color: #dee2e6;
-    --bs-pagination-focus-color: #233dd2;
-    --bs-pagination-focus-bg: #e9ecef;
     --bs-pagination-focus-box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.25);
     --bs-pagination-active-color: #fff;
     --bs-pagination-active-bg: #6baa75;
-    --bs-pagination-active-border-color: #5e72e4;
-    --bs-pagination-disabled-color: #6c757d;
-    --bs-pagination-disabled-bg: #fff;
-    --bs-pagination-disabled-border-color: #dee2e6;
+    --bs-pagination-active-border-color: #3d3b30;
     display: flex;
     padding-left: 0;
     list-style: none;
+  }
+  .page-green {
+    --bs-btn-color: #f4f7f5;
+    --bs-btn-bg: #6BAA75;
+    --bs-btn-border-color: #6BAA75;
+    --bs-btn-hover-color: #3d3b30;
+    --bs-btn-hover-bg: #f4f7f5;
+    --bs-btn-focus-shadow-rgb: 38, 175, 116;
+    --bs-btn-active-shadow: none;
   }
   
   .page-link {
@@ -40,22 +39,7 @@
       transition: none;
     }
   }
-  
-  .page-link:hover {
-    z-index: 2;
-    color: var(--bs-pagination-hover-color);
-    background-color: var(--bs-pagination-hover-bg);
-    border-color: var(--bs-pagination-hover-border-color);
-  }
-  
-  .page-link:focus {
-    z-index: 3;
-    color: var(--bs-pagination-focus-color);
-    background-color: var(--bs-pagination-focus-bg);
-    outline: 0;
-    box-shadow: var(--bs-pagination-focus-box-shadow);
-  }
-  
+ 
   .page-link.active,
   .active>.page-link {
     z-index: 3;
@@ -64,33 +48,8 @@
     border-color: var(--bs-pagination-active-border-color);
   }
   
-  .page-link.disabled,
-  .disabled>.page-link {
-    color: var(--bs-pagination-disabled-color);
-    pointer-events: none;
-    background-color: var(--bs-pagination-disabled-bg);
-    border-color: var(--bs-pagination-disabled-border-color);
-  }
-  
   .page-item:not(:first-child) .page-link {
-    margin-left: calc($pagination-border-width * -1);
-  }
-  
-  .page-item:first-child .page-link {
-    border-top-left-radius: var(--bs-pagination-border-radius);
-    border-bottom-left-radius: var(--bs-pagination-border-radius);
-  }
-  
-  .page-item:last-child .page-link {
-    border-top-right-radius: var(--bs-pagination-border-radius);
-    border-bottom-right-radius: var(--bs-pagination-border-radius);
-  }
-  
-  .pagination-lg {
-    --bs-pagination-padding-x: 1.5rem;
-    --bs-pagination-padding-y: 0.75rem;
-    --bs-pagination-font-size: 1.125rem;
-    --bs-pagination-border-radius: 0.75rem;
+    margin-left: calc(pagination-border-width * -1);
   }
   
   .pagination-sm {
@@ -100,19 +59,40 @@
     --bs-pagination-border-radius: 0.25rem;
   }
 
+
+
+
   .btn-green {
-    --bs-btn-color: #000;
+    --bs-btn-color: #f4f7f5;
     --bs-btn-bg: #6BAA75;
     --bs-btn-border-color: #6BAA75;
-    --bs-btn-hover-color: #000;
-    --bs-btn-hover-bg: #4dd59b;
-    --bs-btn-hover-border-color: #42d395;
+    --bs-btn-hover-color: #3d3b30;
+    --bs-btn-hover-bg: #f4f7f5;
     --bs-btn-focus-shadow-rgb: 38, 175, 116;
-    --bs-btn-active-color: #000;
-    --bs-btn-active-bg: #57d8a1;
-    --bs-btn-active-border-color: #42d395;
     --bs-btn-active-shadow: none;
-    --bs-btn-disabled-color: #000;
-    --bs-btn-disabled-bg: #6BAA75;
-    --bs-btn-disabled-border-color: #6BAA75;
   }
+  .btn-lg,
+  .btn-group-lg>.btn {
+    --bs-btn-padding-y: 0.875rem;
+    --bs-btn-padding-x: 4rem;
+    --bs-btn-font-size: 0.875rem;
+    --bs-btn-border-radius: 0.5rem;
+  }
+  .btn-lg+.dropdown-toggle-split,
+.btn-group-lg>.btn+.dropdown-toggle-split {
+  padding-right: 3rem;
+  padding-left: 3rem;
+}
+  .btn.btn-lg.btn-icon-only,
+.btn-group-lg>.btn.btn-icon-only {
+  width: 3.25rem;
+  height: 3.25rem;
+  padding: 1rem 1rem;
+}
+
+.btn.btn-lg i,
+.btn-group-lg>.btn i {
+  font-size: 1.2rem;
+  position: relative;
+  top: 2px;
+}
