@@ -6,6 +6,7 @@ const port = 3080;
 
 app.use(cors());
 
+app.use('/', require('./nothing.js')());
 //========================
 //======= WEATHER ========
 //========================
@@ -19,11 +20,13 @@ app.use('/' + nameOfWeatherCollection, weather(nameOfWeatherCollection));
 //========================
 //======== NEWS ==========
 //========================
+*/
+
 const news = require('./news.js');
 const nameOfNewsCollection = 'news';
 
 app.use('/' + nameOfNewsCollection, news(nameOfNewsCollection));
-*/
+
 //========================
 //======= RECIPE =========
 //========================

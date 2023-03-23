@@ -45,7 +45,7 @@ export class MeteoComponent implements OnInit{
 
     ngOnInit(): void {
       //On call le back
-      fetch("http://localhost:3080/weather")
+      fetch("https://fesse.onrender.com/weather")
         .then((response) => response.json())
 
         .then((data) => { 

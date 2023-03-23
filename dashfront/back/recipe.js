@@ -18,12 +18,11 @@ module.exports = function(nameOfCollection) {
             'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
             }
         }
-        console.log("Appel n°" + nbCall++);
         
 
         bdd.doIhaveToRequest(nameOfCollection).then(result => {
             if(result){
-                console.log("We request the API");
+                console.log("[" + nameOfCollection + "] Appel n°" + nbCall++ + " -- We request the API");
                 axios.get(url, options).then(response => {
                     res.json(response.data);
                     bdd.addDoc(nameOfCollection, response.data);
@@ -32,7 +31,7 @@ module.exports = function(nameOfCollection) {
                 console.error('Erreur lors de la récupération des données des recettes', error);
                 });
             } else {
-                console.log("We don't request the API");
+                console.log("[" + nameOfCollection + "] Appel n°" + nbCall++ + " -- We don't request the API");
                 bdd.getlastDoc(nameOfCollection).then(response => {
                     res.json(response);
                 });

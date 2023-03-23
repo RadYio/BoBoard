@@ -2,6 +2,7 @@ const { initializeApp, applicationDefault, cert } = require('firebase-admin/app'
 const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
 
 
+
 let serviceAccount = null;
 
 if("FIREBASE_SERVICE_ACCOUNT" in process.env){

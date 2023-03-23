@@ -33,7 +33,7 @@ export class CuisineComponent implements OnInit {
   ngOnInit(): void {
     
     //On call le back
-    fetch("http://localhost:3080/recipe")
+    fetch("https://fesse.onrender.com/recipe")
       .then((response) => response.json())
 
       .then((data) => { 
