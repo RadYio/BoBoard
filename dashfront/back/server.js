@@ -23,7 +23,7 @@ const news = require('./news.js');
 const nameOfNewsCollection = 'news';
 
 app.use('/' + nameOfNewsCollection, news(nameOfNewsCollection));
-
+*/
 //========================
 //======= RECIPE =========
 //========================
@@ -31,8 +31,4 @@ const recipe = require('./recipe.js');
 const nameOfRecipeCollection = 'recipe';
 
 app.use('/' + nameOfRecipeCollection, recipe(nameOfRecipeCollection));
-*/
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});

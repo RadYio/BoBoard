@@ -21,11 +21,13 @@ export class CuisineComponent implements OnInit {
 
 
   constructor(private apiService: ApiCuisineService){
-    this.recette = "";
-    this.recetteIng = "";
-    this.recetteUrlVideo = "";
-    this.recetteTag = "";
-    this.recetteTime = "";
+    this.recette = "Recipe name not defined";
+    this.recetteIng = "Ingredientrs not defined";
+    this.recetteUrlVideo = "url not defined";
+    this.recetteTag = "url not defined";
+    this.recetteTime = "< 30min";
+    this.recetteImgUrl[0] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP0tAN3jrlKb8pBCpT2EZ9vjQHbEq0Pk_Rkd7GSbDWkFwzWnaCWpwt7zHUzzwRHv1a_XU&usqp=CAU";
+    this.recetteImgUrl[1] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfi8749BeFsvVmWVptD5L7JHDFHH5YOK28MmcKOHWvBLylRABQ_JuAKnI-G33FnrjS09A&usqp=CAU";
   };
   
   ngOnInit(): void {
@@ -41,8 +43,6 @@ export class CuisineComponent implements OnInit {
       if(resultat.results[id].total_time_minutes != null){
         //this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " minutes";
         this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " fesse";
-      }else{
-        this.recetteTime = " ~ 1H"
       }
       //Ajout des ingrédeints
       resultat.results[id].sections[0].components.forEach((element: { raw_text: any; }) => this.listOfIng.push(element.raw_text));
