@@ -26,9 +26,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/css/argon-dashboard.min.css",
-              "src/css/nucleo-icons.css",
-              "src/css/nucleo-svg.css"
+              "src/css/argon-dashboard.min.css"
             ],
             "scripts": [
                 "node_modules/jquery/dist/jquery.min.js",

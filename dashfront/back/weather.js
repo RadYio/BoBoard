@@ -21,20 +21,20 @@ module.exports = function(nameOfCollection) {
         
         bdd.doIhaveToRequest(nameOfCollection).then(result => {
             if(result){
-            console.log("We request the API");
-            axios.get(requestFull)
-                .then(response => {
-                res.json(response.data);
-                bdd.addDoc(nameOfCollection, response.data);
-                })
-                .catch(error => {
-                console.error('Erreur lors de la récupération des données météo', error);
+                console.log("We request the API");
+                axios.get(requestFull)
+                    .then(response => {
+                    res.json(response.data);
+                    bdd.addDoc(nameOfCollection, response.data);
+                    })
+                    .catch(error => {
+                    console.error('Erreur lors de la récupération des données météo', error);
+                    });
+                } else {
+                console.log("We don't request the API");
+                bdd.getlastDoc(nameOfCollection).then(response => {
+                    res.json(response);
                 });
-            } else {
-            console.log("We don't request the API");
-            bdd.getlastDoc(nameOfCollection).then(response => {
-                res.json(response);
-            });
             }
         });
     });
