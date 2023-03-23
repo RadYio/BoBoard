@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class MeteoComponent implements OnInit{
-  //test
+  
   iconUrl: string;
   bgUrl: string;
   description: string;
@@ -48,7 +48,7 @@ export class MeteoComponent implements OnInit{
       fetch("http://localhost:3080/weather")
         .then((response) => response.json())
 
-        .then((data) => {
+        .then((data) => { 
 
           //Background
           let currentWeather = data.current.weather[0].main;
