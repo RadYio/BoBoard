@@ -20,11 +20,13 @@ app.use('/' + nameOfWeatherCollection, weather(nameOfWeatherCollection));
 //========================
 //======== NEWS ==========
 //========================
+*/
+
 const news = require('./news.js');
 const nameOfNewsCollection = 'news';
 
 app.use('/' + nameOfNewsCollection, news(nameOfNewsCollection));
-*/
+
 //========================
 //======= RECIPE =========
 //========================
