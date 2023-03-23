@@ -68,7 +68,7 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 1.5rem;
   --bs-border-radius-pill: 50rem;
-  --bs-heading-color: #344767;
+  --bs-heading-color: #F4F7F5;
   --bs-link-color: #5e72e4;
   --bs-link-hover-color: #233dd2;
   --bs-code-color: #d63384;
@@ -5142,11 +5142,11 @@ fieldset:disabled .btn {
   --bs-card-inner-border-radius: 1rem;
   --bs-card-cap-padding-y: 0.5rem;
   --bs-card-cap-padding-x: 1rem;
-  --bs-card-cap-bg: #fff;
-  --bs-card-cap-color: ;
+  --bs-card-cap-bg: #6BAA75;
+  --bs-card-cap-color: #fff ;
   --bs-card-height: ;
-  --bs-card-color: ;
-  --bs-card-bg: #fff;
+  --bs-card-color: #fff ;
+  --bs-card-bg: #636363;
   --bs-card-img-overlay-padding: 1rem;
   --bs-card-group-margin: 0.75rem;
   position: relative;
@@ -10625,7 +10625,7 @@ fieldset:disabled .btn {
 }
 
 .bg-gray-100 {
-  background-color: #f8f9fa !important;
+  background-color: #f4f7f5 !important;
 }
 
 .bg-gray-200 {
