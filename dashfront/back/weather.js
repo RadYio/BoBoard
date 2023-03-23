@@ -16,12 +16,11 @@ module.exports = function(nameOfCollection) {
         const apiKey = "appid=dbb76c5d98d5dbafcb94441c6a10236e&"; //thanks tonton
         const lang = "lang=en"; //Choice language
         const requestFull = queryUrl + lat + lon + apiOptions + apiKey + lang;
-        console.log("Appel n°" + nbCall++);
         
         
         bdd.doIhaveToRequest(nameOfCollection).then(result => {
             if(result){
-                console.log("We request the API");
+                console.log("Appel n°" + nbCall++ + " -- We request the API");
                 axios.get(requestFull)
                     .then(response => {
                     res.json(response.data);
@@ -31,7 +30,7 @@ module.exports = function(nameOfCollection) {
                     console.error('Erreur lors de la récupération des données météo', error);
                     });
                 } else {
-                console.log("We don't request the API");
+                    console.log("Appel n°" + nbCall++ + " -- We don't request the API");
                 bdd.getlastDoc(nameOfCollection).then(response => {
                     res.json(response);
                 });
