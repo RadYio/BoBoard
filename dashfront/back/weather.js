@@ -21,7 +21,7 @@ module.exports = function(nameOfCollection) {
         
         bdd.doIhaveToRequest(nameOfCollection).then(result => {
             if(result){
-                console.log("We request the API");
+                console.log("Appel n°" + nbCall++ + " -- We request the API");
                 axios.get(requestFull)
                     .then(response => {
                     res.json(response.data);
@@ -31,7 +31,7 @@ module.exports = function(nameOfCollection) {
                     console.error('Erreur lors de la récupération des données météo', error);
                     });
                 } else {
-                console.log("We don't request the API");
+                    console.log("Appel n°" + nbCall++ + " -- We don't request the API");
                 bdd.getlastDoc(nameOfCollection).then(response => {
                     res.json(response);
                 });
