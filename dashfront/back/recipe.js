@@ -1,7 +1,6 @@
 // export the function as a module
 module.exports = function(nameOfCollection) {
     const express = require('express');
-    const cors = require('cors');
     const axios = require('axios');
     const bdd = require('./bdd.js');
 
@@ -9,13 +8,13 @@ module.exports = function(nameOfCollection) {
 
     const router = express.Router();
 
-    router.get('/Cuisine', async (req, res) => {
-        const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes&aspect_ratio=9:16';
+    router.get('/', async (req, res) => {
+        const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes';
         const options = {
             timeout: 30000,
             method: 'GET',
             headers: {
-            'X-RapidAPI-Key': '78d441e7c1mshacf7f6f61fc37a4p101a35jsn10e8d594b66f',
+            'X-RapidAPI-Key': 'e49c7f48c1msh1a861905df30f59p1acec0jsn270c39c1c371',
             'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
             }
         }
@@ -33,10 +32,10 @@ module.exports = function(nameOfCollection) {
                 console.error('Erreur lors de la récupération des données des recettes', error);
                 });
             } else {
-            console.log("We don't request the API");
-            bdd.getlastDoc(nameOfCollection).then(response => {
-                res.json(response);
-            });
+                console.log("We don't request the API");
+                bdd.getlastDoc(nameOfCollection).then(response => {
+                    res.json(response);
+                });
             }
         });
         

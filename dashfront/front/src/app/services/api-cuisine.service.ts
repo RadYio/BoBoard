@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 })
 export class ApiCuisineService {
 
-  REST_API: string = 'http://localhost:3080/Cuisine';
+  REST_API: string = 'http://localhost:3080/recipe';
 
   constructor(private httpClient: HttpClient) { }
 
