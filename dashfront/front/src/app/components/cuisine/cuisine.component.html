@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <div class="page-header min-vh-75 m-3 border-radius-xl" style="background-image: url('https://images.unsplash.com/photo-1552793494-111afe03d0ca?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80');"> 
+        <div class="page-header min-vh-75 m-3 border-radius-xl" style="background-image: url('https://i.pinimg.com/originals/6f/f3/a1/6ff3a10df4b79336e81fea56f25cfa10.gif');"> 
           <span class="mask bg-gradient-dark"></span>
           <div class="container">
             <div class="row">
@@ -47,13 +47,57 @@
                   </ul>
                 </div>
                     <a href="{{recetteUrlVideo}}">
-                      <button type="button" class="btn btn-primary btn-lg w-100 fadeIn3">Recette en vidéo</button>
+                      <button type="button" class="btn btn-success btn-lg w-100 fadeIn3">Recette en vidéo</button>
                     </a>
                 </div>
             </div>
           </div>
         </div>
     </div>
+    <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-auto">
+      <ul class="pagination">
+
+        <li class="page-item active">
+          <a class="page-link" href="#carouselExampleControls" role="button" data-bs-slide="prev" aria-label="Previous">
+            <i class="fa fa-angle-left"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item active">
+          <a class="page-link" href="#carouselExampleControls" role="button" data-bs-slide-to="0" (click)="selectPage(1)">1</a>
+        </li>
+        <li class="page-item ">
+          <a class="page-link" href="#carouselExampleControls" role="button" data-bs-slide-to="1" (click)="selectPage(2)">2</a>
+        </li>
+        <li class="page-item active">
+          <a class="page-link" href="#carouselExampleControls" role="button" data-bs-slide-to="2" (click)="selectPage(3)">3</a>
+        </li>
+        <li class="page-item active ">
+          <a class="page-link" href="#carouselExampleControls" role="button" data-bs-slide="next" aria-label="Next">
+            <i class="fa fa-angle-right"></i>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+        <!--
+        <li class="page-item active">
+          <a class="page-link" href="#carouselExampleControls" role="button" data-bs-slide="prev" aria-label="Previous">
+            <i class="fa fa-angle-left"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#carouselExampleControls" role="button" data-bs-slide-to="0">1</a></li>
+        <li class="page-item active"><a class="page-link" href="#carouselExampleControls" role="button" data-bs-slide-to="1">2</a></li>
+        <li class="page-item active"><a class="page-link" href="#carouselExampleControls" role="button" data-bs-slide-to="2">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#carouselExampleControls" role="button" data-bs-slide="next" aria-label="Next">
+            <i class="fa fa-angle-right"></i>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+        -->
+      </ul>
+    </nav>
+  </div>
     <div class="min-vh-100 position-absolute w-100 top-0">
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon position-absolute bottom-50" aria-hidden="true"></span>

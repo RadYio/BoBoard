@@ -30,12 +30,12 @@ export class CuisineComponent implements OnInit {
   
   ngOnInit(): void {
     this.apiService.GetCuisine().subscribe(data => {
-      let id = 0;
+      let id = 2;
       let resultat = JSON.parse(JSON.stringify(data));
       this.recette = resultat.results[id].name
       this.recetteImgUrl[0] = resultat.results[id].thumbnail_url;
       this.recetteImgUrl[1] = resultat.results[id].renditions[0].poster_url;
-      this.recetteUrlVideo = resultat.original_video_url;
+      this.recetteUrlVideo = resultat.results[id].original_video_url;
       //On récupère le dernier topics 
       this.recetteTag = resultat.results[id].topics.pop().name
       if(resultat.results[id].total_time_minutes != null){
@@ -48,34 +48,18 @@ export class CuisineComponent implements OnInit {
       resultat.results[id].sections[0].components.forEach((element: { raw_text: any; }) => this.listOfIng.push(element.raw_text));
       //Ajout des étapes de la recette
       resultat.results[id].instructions.forEach((element: { display_text: any; }) => this.listOfEtapes.push(element.display_text));
-
-  });
-  
-    /*
-    const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes';
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': '78d441e7c1mshacf7f6f61fc37a4p101a35jsn10e8d594b66f',
-        'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-      }
-    };
-    fetch(url,options)
-    .then(res => res.json())
-    .then( res => {
-      //Pour le nom
+      alert(JSON.stringify(this.listOfEtapes));
       
-      this.recette1 = res.results[0].name;
-      res.results[0].sections[0].components.forEach((element: { ingredient: { name: any; }; }) => this.listOfIng.push(element.ingredient.name));
-      
-      //temp =  result.results[0].sections[0].components.element.ingredient.name;
-
-      alert(JSON.stringify(res.results[0].name));
-      console.log(this.recette1);
     });
-    */
-    
-    
+  }
+
+  selectPage(event: any) {
+    const pageButtons = document.querySelectorAll('.pagination .page-item');
+    pageButtons.forEach(function(button) {
+      button.classList.add('active');
+    });
+    const clickedButton = event.target as HTMLElement;
+    clickedButton.classList.remove('active');
   }
 
 }

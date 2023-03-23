@@ -19,10 +19,6 @@ export class NewsComponent implements OnInit  {
       method: 'GET'
     };
 
-    this.newsService.getNews().subscribe((data: {}) => {
-
-      });
-
       fetch("http://localhost:3080/news")
       .then((response) => response.json())
         .then((response) => {
