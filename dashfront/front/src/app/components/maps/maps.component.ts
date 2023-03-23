@@ -4,7 +4,7 @@ import { Loader } from '@googlemaps/js-api-loader';
 let map: google.maps.Map, infoWindow: google.maps.InfoWindow;
 
 const loader = new Loader({
-  apiKey: "AIzaSyBUnyVyvNnyU_7GoqJvZfMhw4rsBjZ0Fhc",
+  apiKey: "AIzaSyDLq3etbTq-P5doMe6Gon8V2l-zXAL-JVQ",
   version: "weekly",
   libraries: ["places"]
 });

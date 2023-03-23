@@ -16,7 +16,7 @@ bdd.getlastTimestamp(nameOfCollection);
     bdd.doIhaveToRequest(nameOfCollection).then(result => {
       if(result){
         console.log("[" + nameOfCollection + "] Appel n°" + nbCall++ + " -- We request the API");
-        axios.get("http://api.mediastack.com/v1/news?access_key="+apiKey+"&countries=fr")
+        axios.get("http://api.mediastack.com/v1/news?access_key="+apiKey+"&countries=fr&sort=published_desc&limit=100")
           .then(response => {
             res.json(response.data);
             bdd.addDoc(nameOfCollection, response.data);
