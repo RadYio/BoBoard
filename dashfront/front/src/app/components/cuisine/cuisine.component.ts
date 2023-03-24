@@ -46,8 +46,6 @@ export class CuisineComponent implements OnInit {
           console.log(id+" "+resultat.results[id].aspect_ratio);
 
         }while(resultat.results[id].topics.length == 0);
-
-        alert(resultat.results[id].topics.length)
         this.recette = resultat.results[id].name
         this.recetteImgUrl[0] = resultat.results[id].thumbnail_url;
         this.recetteImgUrl[1] = resultat.results[id].renditions[0].poster_url;
