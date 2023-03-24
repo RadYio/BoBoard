@@ -38,19 +38,20 @@ export class CuisineComponent implements OnInit {
 
       .then((data) => { 
         
-        let id = 0;
+        let id = 1;
         let resultat = JSON.parse(JSON.stringify(data));
         
         do{
           id = Math.floor(Math.random() * resultat.results.length);
           console.log(id+" "+resultat.results[id].aspect_ratio);
-        }while(resultat.results[id].aspect_ratio != "9:16");
+
+        }while(resultat.results[id].topics.length == 0);
         this.recette = resultat.results[id].name
         this.recetteImgUrl[0] = resultat.results[id].thumbnail_url;
         this.recetteImgUrl[1] = resultat.results[id].renditions[0].poster_url;
         this.recetteUrlVideo = resultat.results[id].original_video_url;
         //On récupère le dernier topics 
-        this.recetteTag = resultat.results[id].topics.pop().name
+        this.recetteTag = resultat.results[id].topics[0].name;
         if(resultat.results[id].total_time_minutes != null){
           //this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " minutes";
           this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " fesse";
