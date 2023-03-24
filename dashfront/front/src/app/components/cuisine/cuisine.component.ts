@@ -24,7 +24,7 @@ export class CuisineComponent implements OnInit {
     this.recette = "Recipe name not defined";
     this.recetteIng = "Ingredientrs not defined";
     this.recetteUrlVideo = "url not defined";
-    this.recetteTag = "url not defined";
+    this.recetteTag = "tag not defined";
     this.recetteTime = "< 30min";
     this.recetteImgUrl[0] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP0tAN3jrlKb8pBCpT2EZ9vjQHbEq0Pk_Rkd7GSbDWkFwzWnaCWpwt7zHUzzwRHv1a_XU&usqp=CAU";
     this.recetteImgUrl[1] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfi8749BeFsvVmWVptD5L7JHDFHH5YOK28MmcKOHWvBLylRABQ_JuAKnI-G33FnrjS09A&usqp=CAU";
@@ -37,8 +37,14 @@ export class CuisineComponent implements OnInit {
       .then((response) => response.json())
 
       .then((data) => { 
-        let id = 2;
+        
+        let id = 0;
         let resultat = JSON.parse(JSON.stringify(data));
+        
+        do{
+          id = Math.floor(Math.random() * resultat.results.length);
+          console.log(id+" "+resultat.results[id].aspect_ratio);
+        }while(resultat.results[id].aspect_ratio != "9:16");
         this.recette = resultat.results[id].name
         this.recetteImgUrl[0] = resultat.results[id].thumbnail_url;
         this.recetteImgUrl[1] = resultat.results[id].renditions[0].poster_url;
@@ -63,6 +69,8 @@ export class CuisineComponent implements OnInit {
     const clickedButton = event.target as HTMLElement;
     clickedButton.classList.remove('active');
   }
+
+  
 
 }
 

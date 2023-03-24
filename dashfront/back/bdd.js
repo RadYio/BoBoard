@@ -62,14 +62,16 @@ module.exports = {
       return doc.data().timestamp;
     })[0];
   },
-
+  //getLastDoc: display the last doc (json) in a collection in firestore
+  //collection: name of the collection in firestore
   getlastDoc: async function (collection) {
     const allDocsInCollection = await db.collection(collection).orderBy("timestamp", "desc").limit(1).get();
     return allDocsInCollection.docs.map((doc) => {
       return doc.data().json;
     })[0];
   },
-
+  //doIhaveToRequest: check if the last doc in a collection in firestore is older than the refresh time
+  //collection: name of the collection in firestore
   doIhaveToRequest: async function (collection) {
     const res = await this.getlastTimestamp(collection);
     if(res === undefined) return true;
