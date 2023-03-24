@@ -68,7 +68,7 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 1.5rem;
   --bs-border-radius-pill: 50rem;
-  --bs-heading-color: #344767;
+  --bs-heading-color: #F4F7F5;
   --bs-link-color: #5e72e4;
   --bs-link-hover-color: #233dd2;
   --bs-code-color: #d63384;
@@ -678,7 +678,7 @@ progress {
 .container-lg,
 .container-xl,
 .container-xxl {
-  --bs-gutter-x: 1.5rem;
+  --bs-gutter-x: 0.5rem;
   --bs-gutter-y: 0;
   width: 100%;
   padding-right: calc(var(--bs-gutter-x) * 1);
@@ -738,7 +738,7 @@ progress {
 }
 
 .row {
-  --bs-gutter-x: 1.5rem;
+  --bs-gutter-x: 1rem; 
   --bs-gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
@@ -2488,7 +2488,7 @@ progress {
 }
 
 .table-group-divider {
-  border-top: calc(2 * $table-border-width) solid currentColor;
+  border-top: calc(2 * table-border-width) solid currentColor;
 }
 
 .caption-top {
@@ -3709,6 +3709,8 @@ fieldset:disabled .btn {
   --bs-btn-disabled-bg: #2dce89;
   --bs-btn-disabled-border-color: #2dce89;
 }
+
+
 
 .btn-info {
   --bs-btn-color: #000;
@@ -5140,11 +5142,11 @@ fieldset:disabled .btn {
   --bs-card-inner-border-radius: 1rem;
   --bs-card-cap-padding-y: 0.5rem;
   --bs-card-cap-padding-x: 1rem;
-  --bs-card-cap-bg: #fff;
-  --bs-card-cap-color: ;
+  --bs-card-cap-bg: #6BAA75;
+  --bs-card-cap-color: #fff ;
   --bs-card-height: ;
-  --bs-card-color: ;
-  --bs-card-bg: #fff;
+  --bs-card-color: #fff ;
+  --bs-card-bg: #636363;
   --bs-card-img-overlay-padding: 1rem;
   --bs-card-group-margin: 0.75rem;
   position: relative;
@@ -5532,7 +5534,7 @@ fieldset:disabled .btn {
   --bs-pagination-focus-bg: #e9ecef;
   --bs-pagination-focus-box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.25);
   --bs-pagination-active-color: #fff;
-  --bs-pagination-active-bg: #5e72e4;
+  --bs-pagination-active-bg: #6baa75;
   --bs-pagination-active-border-color: #5e72e4;
   --bs-pagination-disabled-color: #6c757d;
   --bs-pagination-disabled-bg: #fff;
@@ -5591,7 +5593,7 @@ fieldset:disabled .btn {
 }
 
 .page-item:not(:first-child) .page-link {
-  margin-left: calc($pagination-border-width * -1);
+  margin-left: calc(pagination-border-width * -1);
 }
 
 .page-item:first-child .page-link {
@@ -9375,7 +9377,7 @@ fieldset:disabled .btn {
 }
 
 .mt-4 {
-  margin-top: 1.5rem !important;
+  margin: auto !important;
 }
 
 .mt-5 {
@@ -10091,12 +10093,11 @@ fieldset:disabled .btn {
 
 .py-6 {
   padding-top: 4rem !important;
-  padding-bottom: 4rem !important;
 }
 
 .py-7 {
-  padding-top: 6rem !important;
-  padding-bottom: 6rem !important;
+  padding-top: 3rem !important;
+  padding-bottom: 1rem !important;
 }
 
 .py-8 {
@@ -10580,7 +10581,7 @@ fieldset:disabled .btn {
 }
 
 .bg-primary {
-  background-color: #5e72e4 !important;
+  background-color: #18206f !important;
 }
 
 .bg-secondary {
@@ -10624,7 +10625,7 @@ fieldset:disabled .btn {
 }
 
 .bg-gray-100 {
-  background-color: #f8f9fa !important;
+  background-color: #f4f7f5 !important;
 }
 
 .bg-gray-200 {
@@ -21244,6 +21245,27 @@ fieldset:disabled .btn {
   position: relative;
 }
 
+.justify-li {
+  display: inline-block;
+  max-width: 100%;
+  text-align: justify;
+  text-align-last: start;
+  padding-right: 10px;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+
+
 .dropdown.dropdown-subitem:after {
   left: 100%;
   bottom: 0;
@@ -22613,8 +22635,8 @@ hr.horizontal.gray-light {
 }
 
 .navbar-vertical.navbar-expand-xs .navbar-nav .nav .nav-link {
-  padding-top: calc($navbar-vertical-nav-link-padding-y / 1.5);
-  padding-bottom: calc($navbar-vertical-nav-link-padding-y / 1.5);
+  padding-top: calc(navbar-vertical-nav-link-padding-y / 1.5);
+  padding-bottom: calc(navbar-vertical-nav-link-padding-y / 1.5);
   padding-left: 15px;
 }
 
@@ -22713,8 +22735,8 @@ hr.horizontal.gray-light {
   }
 
   .navbar-vertical.navbar-expand-sm .navbar-nav .nav .nav-link {
-    padding-top: calc($navbar-vertical-nav-link-padding-y / 1.5);
-    padding-bottom: calc($navbar-vertical-nav-link-padding-y / 1.5);
+    padding-top: calc(navbar-vertical-nav-link-padding-y / 1.5);
+    padding-bottom: calc(navbar-vertical-nav-link-padding-y / 1.5);
     padding-left: 15px;
   }
 
@@ -22814,8 +22836,8 @@ hr.horizontal.gray-light {
   }
 
   .navbar-vertical.navbar-expand-md .navbar-nav .nav .nav-link {
-    padding-top: calc($navbar-vertical-nav-link-padding-y / 1.5);
-    padding-bottom: calc($navbar-vertical-nav-link-padding-y / 1.5);
+    padding-top: calc(navbar-vertical-nav-link-padding-y / 1.5);
+    padding-bottom: calc(navbar-vertical-nav-link-padding-y / 1.5);
     padding-left: 15px;
   }
 
@@ -22915,8 +22937,8 @@ hr.horizontal.gray-light {
   }
 
   .navbar-vertical.navbar-expand-lg .navbar-nav .nav .nav-link {
-    padding-top: calc($navbar-vertical-nav-link-padding-y / 1.5);
-    padding-bottom: calc($navbar-vertical-nav-link-padding-y / 1.5);
+    padding-top: calc(navbar-vertical-nav-link-padding-y / 1.5);
+    padding-bottom: calc(navbar-vertical-nav-link-padding-y / 1.5);
     padding-left: 15px;
   }
 
@@ -23016,8 +23038,8 @@ hr.horizontal.gray-light {
   }
 
   .navbar-vertical.navbar-expand-xl .navbar-nav .nav .nav-link {
-    padding-top: calc($navbar-vertical-nav-link-padding-y / 1.5);
-    padding-bottom: calc($navbar-vertical-nav-link-padding-y / 1.5);
+    padding-top: calc(navbar-vertical-nav-link-padding-y / 1.5);
+    padding-bottom: calc(navbar-vertical-nav-link-padding-y / 1.5);
     padding-left: 15px;
   }
 
@@ -23117,8 +23139,8 @@ hr.horizontal.gray-light {
   }
 
   .navbar-vertical.navbar-expand-xxl .navbar-nav .nav .nav-link {
-    padding-top: calc($navbar-vertical-nav-link-padding-y / 1.5);
-    padding-bottom: calc($navbar-vertical-nav-link-padding-y / 1.5);
+    padding-top: calc(navbar-vertical-nav-link-padding-y / 1.5);
+    padding-bottom: calc(navbar-vertical-nav-link-padding-y / 1.5);
     padding-left: 15px;
   }
 
@@ -23782,7 +23804,7 @@ hr.horizontal.gray-light {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #8392ab;
+  color: #f4f7f5;
   padding: 0;
   margin: 0 3px;
   border-radius: 50% !important;
@@ -26934,3 +26956,21 @@ pre[class*="language-"] {
 }
 
 /*# sourceMappingURL=dashboard-free.css.map */
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}

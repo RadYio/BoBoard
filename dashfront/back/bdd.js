@@ -1,8 +1,20 @@
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
 
-//Get the service account key from the json file downloaded from firebase
-const serviceAccount = require('./clefGoogle.json');
+
+
+let serviceAccount = null;
+
+if("FIREBASE_SERVICE_ACCOUNT" in process.env){
+  console.log("Environment variable FIREBASE_SERVICE_ACCOUNT is defined");
+  serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+}else{
+  console.log("Environment variable FIREBASE_SERVICE_ACCOUNT is undefined try to use the local file");
+  //Get the service account key from the json file downloaded from firebase
+  serviceAccount = require('./clefGoogle.json');
+}
+
+
 
 const weatherRefresh = 3600000; //1 hour
 const recipeRefresh = 86400000; //1 day

@@ -1,11 +1,11 @@
 /* news.component.css */
 .news-container {
-  max-width: 800px;
   margin: 0 auto;
+  background-color: #636363;
 }
 
 .news-header {
-  background-color: #f2f2f2;
+  background-color: #6baa75;
   padding: 20px;
   text-align: center;
 }
@@ -13,7 +13,7 @@
 .news-title {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+  color: #F4F7F5;
   margin: 0;
 }
 
@@ -22,14 +22,13 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 20px 0;
-  height: 400px; /* Add a fixed height */
+  height: 600px; /* Add a fixed height */
   overflow-y: scroll; /* Add overflow-y property */
 }
 
 .news-item {
-  width: calc(33.33% - 20px);
-  background-color: #fff;
-  border: 1px solid #ddd;
+  width: calc(25.33% - 20px);
+  background-color: #293357;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   overflow: hidden;

@@ -9,67 +9,59 @@ import { ApiCuisineService } from '../../services/api-cuisine.service'
 })
 
 export class CuisineComponent implements OnInit {
-  recette1: String;
-  recette1Ing: String;
-  recetteImgUrl: String;
+  recette: String;
+  recetteIng: String;
+  recetteImgUrl: String[] = [];
   recetteTag: String;
   recetteTime: String;
   listOfIng: any[] = [];
+  listOfEtapes: any[] = [];
+  recetteUrlVideo: String;
 
 
 
   constructor(private apiService: ApiCuisineService){
-    this.recette1 = "";
-    this.recette1Ing = "";
-    this.recetteImgUrl = "";
-    this.recetteTag = "";
-    this.recetteTime = "";
+    this.recette = "Recipe name not defined";
+    this.recetteIng = "Ingredientrs not defined";
+    this.recetteUrlVideo = "url not defined";
+    this.recetteTag = "url not defined";
+    this.recetteTime = "< 30min";
+    this.recetteImgUrl[0] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP0tAN3jrlKb8pBCpT2EZ9vjQHbEq0Pk_Rkd7GSbDWkFwzWnaCWpwt7zHUzzwRHv1a_XU&usqp=CAU";
+    this.recetteImgUrl[1] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfi8749BeFsvVmWVptD5L7JHDFHH5YOK28MmcKOHWvBLylRABQ_JuAKnI-G33FnrjS09A&usqp=CAU";
   };
   
   ngOnInit(): void {
-    this.apiService.GetCuisine().subscribe(data => {
-      let id = 18;
-      let resultat = JSON.parse(JSON.stringify(data));
-      this.recette1 = resultat.results[id].name
-      this.recetteImgUrl = resultat.results[id].thumbnail_url;
-      //On récupère le dernier topics 
-      this.recetteTag = resultat.results[id].topics.pop().name
-      if(resultat.results[id].total_time_minutes != null){
-        //this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " minutes";
-        this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " fesse";
-      }else{
-        this.recetteTime = " ~ 1H"
-      }
-      
-      resultat.results[id].sections[0].components.forEach((element: { raw_text: any; }) => this.listOfIng.push(element.raw_text));
+    
+    //On call le back
+    fetch("https://fesse.onrender.com/recipe")
+      .then((response) => response.json())
 
-  });
-  
-    /*
-    const url = 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes';
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': '78d441e7c1mshacf7f6f61fc37a4p101a35jsn10e8d594b66f',
-        'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-      }
-    };
-    fetch(url,options)
-    .then(res => res.json())
-    .then( res => {
-      //Pour le nom
-      
-      this.recette1 = res.results[0].name;
-      res.results[0].sections[0].components.forEach((element: { ingredient: { name: any; }; }) => this.listOfIng.push(element.ingredient.name));
-      
-      //temp =  result.results[0].sections[0].components.element.ingredient.name;
-
-      alert(JSON.stringify(res.results[0].name));
-      console.log(this.recette1);
+      .then((data) => { 
+        let id = 2;
+        let resultat = JSON.parse(JSON.stringify(data));
+        this.recette = resultat.results[id].name
+        this.recetteImgUrl[0] = resultat.results[id].thumbnail_url;
+        this.recetteImgUrl[1] = resultat.results[id].renditions[0].poster_url;
+        this.recetteUrlVideo = resultat.results[id].original_video_url;
+        //On récupère le dernier topics 
+        this.recetteTag = resultat.results[id].topics.pop().name
+        if(resultat.results[id].total_time_minutes != null){
+          //this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " minutes";
+          this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " fesse";
+        }
+        //Ajout des ingrédeints
+        resultat.results[id].sections[0].components.forEach((element: { raw_text: any; }) => this.listOfIng.push(element.raw_text));
+        //Ajout des étapes de la recette
+        resultat.results[id].instructions.forEach((element: { display_text: any; }) => this.listOfEtapes.push(element.display_text));
+      });
+    }
+  selectPage(event: any) {
+    const pageButtons = document.querySelectorAll('.pagination .page-item');
+    pageButtons.forEach(function(button) {
+      button.classList.add('active');
     });
-    */
-    
-    
+    const clickedButton = event.target as HTMLElement;
+    clickedButton.classList.remove('active');
   }
 
 }

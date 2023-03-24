@@ -4,17 +4,17 @@ import { Loader } from '@googlemaps/js-api-loader';
 let map: google.maps.Map, infoWindow: google.maps.InfoWindow;
 
 const loader = new Loader({
-  apiKey: "AIzaSyBUnyVyvNnyU_7GoqJvZfMhw4rsBjZ0Fhc",
+  apiKey: "AIzaSyDLq3etbTq-P5doMe6Gon8V2l-zXAL-JVQ",
   version: "weekly",
   libraries: ["places"]
 });
 
 let mapOptions = {
   center: {
-    lat: 0,
-    lng: 0
+    lat: 44.078237339808716, 
+    lng: 3.385298854957181
   },
-  zoom: 4
+  zoom: 35
 };
 
 function initMap(){
