@@ -7,12 +7,25 @@
     --bs-pagination-border-radius: 0.5rem;
     --bs-pagination-focus-box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.25);
     --bs-pagination-active-color: #fff;
-    --bs-pagination-active-bg: #6baa75;
+    --bs-pagination-active-bg: #527D73; /* Couleur des petits boutons en haut */
     --bs-pagination-active-border-color: #3d3b30;
     display: flex;
     padding-left: 0;
     list-style: none;
   }
+
+
+  .btn-green {
+    --bs-btn-color: #f4f7f5;
+    --bs-btn-bg: #527D73; /*Couleur de recette en vidéo*/
+    --bs-btn-border-color: #6BAA75;
+    --bs-btn-hover-color: #3d3b30;
+    --bs-btn-hover-bg: #f4f7f5;
+    --bs-btn-focus-shadow-rgb: 38, 175, 116;
+    --bs-btn-active-shadow: none;
+  }
+
+  
   .page-green {
     --bs-btn-color: #f4f7f5;
     --bs-btn-bg: #6BAA75;
@@ -59,18 +72,6 @@
     --bs-pagination-border-radius: 0.25rem;
   }
 
-
-
-
-  .btn-green {
-    --bs-btn-color: #f4f7f5;
-    --bs-btn-bg: #6BAA75;
-    --bs-btn-border-color: #6BAA75;
-    --bs-btn-hover-color: #3d3b30;
-    --bs-btn-hover-bg: #f4f7f5;
-    --bs-btn-focus-shadow-rgb: 38, 175, 116;
-    --bs-btn-active-shadow: none;
-  }
   .btn-lg,
   .btn-group-lg>.btn {
     --bs-btn-padding-y: 0.875rem;

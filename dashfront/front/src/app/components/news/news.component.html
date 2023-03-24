@@ -4,6 +4,15 @@
     <h2 class="news-title">NEWS</h2>
   </div>
   <div class="news-items">
+    <div class="loader" id="loading">
+      <span>L</span>
+      <span>O</span>
+      <span>A</span>
+      <span>D</span>
+      <span>I</span>
+      <span>N</span>
+      <span>G</span>
+    </div>
     <div class="news-item" *ngFor = "let n of news">
       <img src="{{n.imageUrl}}" alt="News Image">
       <div class="news-content">
