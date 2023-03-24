@@ -73,6 +73,12 @@
   --bs-link-hover-color: #233dd2;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fcf8e3;
+
+
+  --backgroundp: #474726;
+  --headerp: #5E5E33;
+  --cardheader : #54542D;
+  --cardp : #424224;
 }
 
 *,
@@ -89,18 +95,18 @@
 
 
 .background-page{
-  background-color: #328E78 !important;
+  background-color: var(--backgroundp) !important;
 }
 
 .bg-primary {
-  background-color: #009471 !important;
+  background-color: var(--headerp) !important;
 }
 
 .card-header {
   padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
   margin-bottom: 0;
   color: var(--bs-card-cap-color);
-  background-color: #378191;
+  background-color: var(--cardheader);
   border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }
 
@@ -109,7 +115,7 @@
   padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
   margin-bottom: 0;
   color: var(--bs-card-cap-color);
-  background-color: #378191;
+  background-color: var(--cardheader);
   border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }
 
@@ -128,7 +134,7 @@
   --bs-card-cap-color: #fff ;
   --bs-card-height: ;
   --bs-card-color: #fff ;
-  --bs-card-bg: #378191;
+  --bs-card-bg: var(--cardp);
   --bs-card-img-overlay-padding: 1rem;
   --bs-card-group-margin: 0.75rem;
   position: relative;
@@ -10117,7 +10123,7 @@ fieldset:disabled .btn {
 }
 
 .py-7 {
-  padding-top: 3rem !important;
+  padding-top: 6rem !important;
   padding-bottom: 1rem !important;
 }
 

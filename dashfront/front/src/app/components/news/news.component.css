@@ -4,7 +4,7 @@
 }
 
 .news-header {
-  background-color: #326880;
+  background-color: #51573F;
   padding: 20px;
   text-align: center;
 }
@@ -27,7 +27,7 @@
 
 .news-item {
   width: calc(25.33% - 20px);
-  background-color: #2D6875;
+  background-color: #51573F;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   overflow: hidden;
