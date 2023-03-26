@@ -38,14 +38,15 @@ export class CuisineComponent implements OnInit {
 
       .then((data) => { 
         
-        let id = 1;
+        let id = 17;
         let resultat = JSON.parse(JSON.stringify(data));
-        
+
         do{
           id = Math.floor(Math.random() * resultat.results.length);
-          console.log(id+" "+resultat.results[id].aspect_ratio);
+          console.log(id+" "+resultat.results[id].topics);
 
-        }while(resultat.results[id].topics.length == 0);
+        }while(resultat.results[id].topics == undefined);
+
         this.recette = resultat.results[id].name
         this.recetteImgUrl[0] = resultat.results[id].thumbnail_url;
         this.recetteImgUrl[1] = resultat.results[id].renditions[0].poster_url;
@@ -53,8 +54,8 @@ export class CuisineComponent implements OnInit {
         //On récupère le dernier topics 
         this.recetteTag = resultat.results[id].topics[0].name;
         if(resultat.results[id].total_time_minutes != null){
-          //this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " minutes";
-          this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " fesse";
+          this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " minutes";
+          //this.recetteTime = JSON.stringify(resultat.results[id].total_time_minutes) + " fesse";
         }
         //Ajout des ingrédeints
         resultat.results[id].sections[0].components.forEach((element: { raw_text: any; }) => this.listOfIng.push(element.raw_text));
