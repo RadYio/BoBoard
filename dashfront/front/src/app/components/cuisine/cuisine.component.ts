@@ -38,15 +38,15 @@ export class CuisineComponent implements OnInit {
 
       .then((data) => { 
         
-        let id = 17;
+        let id = 0;
         let resultat = JSON.parse(JSON.stringify(data));
 
         do{
           id = Math.floor(Math.random() * resultat.results.length);
           console.log(id+" "+resultat.results[id].topics);
 
-        }while(resultat.results[id].topics == undefined);
-
+        }while(resultat.results[id].topics == undefined || resultat.results[id].topics.length == 0);
+        
         this.recette = resultat.results[id].name
         this.recetteImgUrl[0] = resultat.results[id].thumbnail_url;
         this.recetteImgUrl[1] = resultat.results[id].renditions[0].poster_url;
