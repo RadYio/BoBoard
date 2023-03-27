@@ -13,8 +13,9 @@ let mapOptions = {
   center: {
     lat: 44.078237339808716,
     lng: 3.385298854957181,
-    'language': 'en'
   },
+  language: 'en',
+  region: 'us',
   zoom: 35
 };
 
