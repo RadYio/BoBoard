@@ -2,7 +2,7 @@
 # BoBoard. Projet Étudiant de 3eme année.
 
 <!-- Description du projet -->
-Ce projet est un tableau de bord affichant des informations météorologiques, des recettes et des des articles d'actualité. Il utilise les API OpenWeatherMap, Tasty API et Mediastack API pour récupérer les données. Les résultats des requêtes sont stockés sur Firebase afin de limiter le nombre de requêtes.
+Ce projet est un tableau de bord affichant des informations météorologiques, des recettes et des articles d'actualité. Il utilise les API OpenWeatherMap, Tasty API et Mediastack API pour récupérer les données. Les résultats des requêtes sont stockés sur Firebase afin de limiter le nombre de requêtes.
 
 <!-- Table des matières -->
 ## Table des matières
@@ -19,7 +19,7 @@ Ce projet est un tableau de bord affichant des informations météorologiques, d
 
 - Affichage de la météo actuelle pour les cinq prochaines heures.
 - Affichage d'une recette aléatoire.
-- Affichage d'une liste de d'actualités récentes.
+- Affichage d'une liste d'actualités récentes.
 - Rafraîchissement des données en temps réel.
 
 <!-- Technologies utilisées -->
@@ -29,7 +29,7 @@ Ce projet est un tableau de bord affichant des informations météorologiques, d
 - OpenWeatherMap API : une API de prévisions météorologiques.
 - Tasty API : une API de recettes de cuisine.
 - Mediastack API : une API de news.
-- Firebase : une plateforme pour stockée les réponses de nos requêtes sur ces API.
+- Firebase : une plateforme pour stocker les réponses de nos requêtes sur ces API.
 
 
 
@@ -45,7 +45,7 @@ Ce projet est un tableau de bord affichant des informations météorologiques, d
 ## Front
 1. Cloner le projet depuis GitHub.
 2. `cd ./dashfront/front/`.
-3. Modifier les adresses qui seront Fetch dans les composants par celle générée dans votre back (exemple: `localhost:3080/weather` ).
+3. Modifier les adresses qui seront Fetch dans les composants par celles générées dans votre back (exemple: `localhost:3080/weather` ).
 4. Installer les dépendances avec la commande `npm install`.
 5. Lancer l'application avec la commande `ng serve`.
 
