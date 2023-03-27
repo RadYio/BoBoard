@@ -11,7 +11,7 @@ const loader = new Loader({
 
 let mapOptions = {
   center: {
-    lat: 44.078237339808716, 
+    lat: 44.078237339808716,
     lng: 3.385298854957181,
     'language': 'en'
   },

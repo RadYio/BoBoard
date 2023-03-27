@@ -23,7 +23,7 @@ export class NewsComponent implements OnInit  {
   fetch("https://fesse.onrender.com/news")
   .then((response) => response.json())
     .then((response) => {
-      for(let i = 0, j = 0; i < 50; i++){
+      for(let i = 0, j = 0; i < 26; i++){
           if(response.data[i].image != null) {
             this.news[j]=new News();
             this.news[j].titre = response.data[i].title;
