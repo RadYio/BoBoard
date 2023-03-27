@@ -4,6 +4,14 @@
 <!-- Description du projet -->
 Ce projet est un tableau de bord affichant des informations météorologiques, des recettes et des articles d'actualité. Il utilise les API OpenWeatherMap, Tasty API et Mediastack API pour récupérer les données. Les résultats des requêtes sont stockés sur Firebase afin de limiter le nombre de requêtes.
 
+<!-- Vidéo de présentation -->
+## Vidéo de présentation
+
+Vous pouvez trouver une vidéo de présentation de notre projet [ici](https://www.youtube.com/watch?v=mtU4nx21ZRk).
+[![Watch the video](https://img.youtube.com/vi/mtU4nx21ZRk/maxresdefault.jpg)](https://youtu.be/mtU4nx21ZRk)
+
+
+
 <!-- Table des matières -->
 ## Table des matières
 - [Fonctionnalités](#fonctionnalités)
