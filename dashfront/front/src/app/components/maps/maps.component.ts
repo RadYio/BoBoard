@@ -12,7 +12,8 @@ const loader = new Loader({
 let mapOptions = {
   center: {
     lat: 44.078237339808716, 
-    lng: 3.385298854957181
+    lng: 3.385298854957181,
+    'language': 'en'
   },
   zoom: 35
 };
@@ -27,7 +28,7 @@ loader.load().then((google) => {
 
   const locationButton = document.createElement("button");
 
-  locationButton.textContent = "Géolocaliser";
+  locationButton.textContent = "Geolocate";
   locationButton.classList.add("custom-map-control-button");
 
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
